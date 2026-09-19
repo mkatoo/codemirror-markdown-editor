@@ -18,21 +18,24 @@ GitHub Pages: https://mkatoo.github.io/codemirror-markdown-editor/
 
 ## Structure
 
-ビルド工程はありません。CodeMirror、marked、DOMPurifyをES Modules CDNから読み込む静的サイトです。
+ViteでCodeMirror、marked、DOMPurifyを単一の依存グラフとしてバンドルする静的サイトです。
 
 ```
 .
 ├── .github/workflows/pages.yml
 ├── app.js
 ├── index.html
+├── package.json
+├── package-lock.json
 ├── styles.css
 └── README.md
 ```
 
-ローカルでは静的HTTPサーバーを起動して確認できます。
+ローカルでは依存関係をインストールして開発サーバーを起動します。
 
 ```bash
-python -m http.server 8000
+npm ci
+npm run dev
 ```
 
-その後、http://localhost:8000 を開いてください。
+表示されたローカルURLを開いてください。

@@ -1,9 +1,9 @@
-import { basicSetup, EditorView } from "https://esm.sh/codemirror@6.0.2";
-import { EditorState, StateEffect } from "https://esm.sh/@codemirror/state@6.5.2";
-import { markdown } from "https://esm.sh/@codemirror/lang-markdown@6.3.4";
-import { oneDark } from "https://esm.sh/@codemirror/theme-one-dark@6.1.2";
-import { marked } from "https://esm.sh/marked@16.2.1";
-import DOMPurify from "https://esm.sh/dompurify@3.2.6";
+import { basicSetup, EditorView } from "codemirror";
+import { EditorState, StateEffect } from "@codemirror/state";
+import { markdown } from "@codemirror/lang-markdown";
+import { oneDark } from "@codemirror/theme-one-dark";
+import { marked } from "marked";
+import DOMPurify from "dompurify";
 
 const STORAGE_KEY = "codemirror-markdown-editor:document";
 const THEME_KEY = "codemirror-markdown-editor:theme";
