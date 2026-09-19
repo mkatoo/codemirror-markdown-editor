@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CodeMirror 6で作ったシンプルなMarkdownエディタ">
+  <meta name="color-scheme" content="light dark">
+  <title>Markdown Studio</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">M↓</span>
+      <div>
+        <h1>Markdown Studio</h1>
+        <p>CodeMirror 6 playground</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <span id="save-status" class="save-status" role="status">保存済み</span>
+      <button id="theme-button" class="icon-button" type="button" aria-label="テーマを切り替える" title="テーマを切り替える">
+        <span class="theme-icon" aria-hidden="true">◐</span>
+      </button>
+      <button id="download-button" class="primary-button" type="button">.md を保存</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <nav class="mobile-tabs" aria-label="表示切り替え">
+      <button class="mobile-tab is-active" type="button" data-panel="editor">編集</button>
+      <button class="mobile-tab" type="button" data-panel="preview">プレビュー</button>
+    </nav>
+
+    <section id="editor-panel" class="panel editor-panel" aria-labelledby="editor-heading">
+      <div class="panel-header">
+        <div>
+          <span class="eyebrow">EDITOR</span>
+          <h2 id="editor-heading">Markdown</h2>
+        </div>
+        <div class="toolbar" aria-label="書式">
+          <button type="button" data-wrap="**" aria-label="太字" title="太字">B</button>
+          <button type="button" data-wrap="*" aria-label="斜体" title="斜体"><em>I</em></button>
+          <button type="button" data-prefix="## " aria-label="見出し" title="見出し">H</button>
+          <button type="button" data-prefix="- " aria-label="リスト" title="リスト">•</button>
+          <button type="button" data-link aria-label="リンク" title="リンク">↗</button>
+        </div>
+      </div>
+      <div id="editor" class="editor-host"></div>
+      <footer class="panel-footer">
+        <span id="line-count">1行</span>
+        <span id="character-count">0文字</span>
+      </footer>
+    </section>
+
+    <section id="preview-panel" class="panel preview-panel" aria-labelledby="preview-heading">
+      <div class="panel-header">
+        <div>
+          <span class="eyebrow">PREVIEW</span>
+          <h2 id="preview-heading">Rendered</h2>
+        </div>
+        <button id="reset-button" class="text-button" type="button">サンプルに戻す</button>
+      </div>
+      <article id="preview" class="markdown-body"></article>
+      <footer class="panel-footer preview-footer">
+        <span>入力内容はこのブラウザに自動保存されます</span>
+      </footer>
+    </section>
+  </main>
+
+  <noscript>このアプリを利用するにはJavaScriptを有効にしてください。</noscript>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
